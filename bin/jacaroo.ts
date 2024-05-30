@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
-import { JacarooStack } from "../lib/jacaroo-stack";
+import { WebsiteStack } from "../lib/jacaroo-stack";
 
 const app = new cdk.App();
-new JacarooStack(app, "JacarooStack", {
+new WebsiteStack(app, "WebsiteStack", {
   env: {
-    account: "058264458914",
+    account: process.env.AWS_GGRANGEL_ACCOUNT,
     region: "us-east-1",
   },
 });
