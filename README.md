@@ -1,14 +1,8 @@
-# Welcome to your CDK TypeScript project
+# Jacare
 
-This is a blank project for CDK development with TypeScript.
+Jacare is a collection of useful AWS CDK stacks.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+1. CostStack: AWS Budgets and alarms to prevent cost overruns  
 
-## Useful commands
+2. StaticWebsiteHostingStack: S3 bucket for hosting the static content. CloudFront to serve it globally, Route53 to manage the DNS records and ACM to provide and manage the SSL certificate  
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
