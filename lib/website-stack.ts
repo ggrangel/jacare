@@ -91,6 +91,8 @@ export class StaticWebsiteHostingStack extends Stack {
       domainName: Config.APEX_DOMAIN,
       subjectAlternativeNames: alternativeNames,
       certificateName: "Static Website Certificate",
+      // Since the domain registrar is Route53 itself, this validatin is automatically done
+      // Otherwise, we would have to create a CNAME record in the domain registrar's DNS settings.
       validation: acm.CertificateValidation.fromDns(this.hostedZone),
     });
   }
