@@ -1,8 +1,8 @@
 {
-  "name": "jacaroo",
+  "name": "jacare",
   "version": "0.1.0",
   "bin": {
-    "jacaroo": "bin/jacaroo.js"
+    "jacaroo": "bin/jacare.js"
   },
   "scripts": {
     "build": "tsc",

@@ -53,10 +53,9 @@ export class StaticWebsiteHostingStack extends Stack {
     });
   }
 
-  // A single bucket costs $0.023 per GB per month for the first 50 TB.
   private createS3WebsiteBucket(): s3.Bucket {
     return new s3.Bucket(this, "WebsiteBucket", {
-      // bucket name must be globally unique
+      // bucket names must be globally unique
       bucketName: `static-website-bucket-${Config.APEX_DOMAIN}`,
       websiteIndexDocument: "index.html",
       websiteErrorDocument: "error.html",
@@ -102,6 +101,9 @@ export class StaticWebsiteHostingStack extends Stack {
    and the CloudFront locations you use (which will depend on the global diversity of your users).
  */
   private createCloudFrontDistribution(): cloudfront.CloudFrontWebDistribution {
+    /* OAI are a special CloudFront user designed to allow CloudFront to access S3 buckets.
+    It automatically integrates with S3 bucket policies, simplifying access control
+    */
     const oai = new cloudfront.OriginAccessIdentity(this, "OAI");
 
     const aliases = [
@@ -195,6 +197,4 @@ export class StaticWebsiteHostingStack extends Stack {
       });
     }
   }
-
-  private allowCfToReadFromBucket() { }
 }
