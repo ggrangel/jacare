@@ -8,6 +8,7 @@ export class CostStack extends Stack {
 
     new CfnBudget(this, "BudgetForAlerting", {
       budget: {
+        budgetName: "BudgetForAlerting-ggrangel-aws-account",
         budgetType: "COST",
         timeUnit: "MONTHLY",
         budgetLimit: {
